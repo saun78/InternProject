@@ -73,6 +73,7 @@
 </head>
 <body>
     <div class="container">
+        @crsf
         <h2>Login</h2>
         <form method="POST" action="/login">
             <div class="form-group">
