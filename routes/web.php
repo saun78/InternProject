@@ -15,9 +15,9 @@ Route::get('/register',function(){
 });
 
 //register page
-Route::post('/register',[usercontroller::class,'register'])->name('register');
+Route::post('/register',[usercontroller::class,'register'])->name('register')->middleware('guest');
 //login page
-Route::post('/login',[usercontroller::class,'login'])->name('login')->middleware('guest');
-Route::post('/login',[usercontroller::class,'login']);
+Route::get('/login',[usercontroller::class,'login'])->name('login');
+Route::post('/login',[usercontroller::class,'authenticate']);
 
 

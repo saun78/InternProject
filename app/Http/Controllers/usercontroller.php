@@ -10,12 +10,12 @@ use Illuminate\Support\Facades\Auth;
 class usercontroller extends Controller
 
 {
-
+//register
     public function register(Request $request){
         $formfeilds = $request->validate([
             'name'=>['required','min:3'],
             'email'=>['required','email',Rule::unique('users','email')],
-            'password'=>['required',"min:4"],
+            'password'=>['required'],
         ]);
 
         //hash password
@@ -26,8 +26,12 @@ class usercontroller extends Controller
         return redirect("/login")->with('message','register succesfully');
     }
 
+    // login
+    public function login(){
+        return view('login');
+    } 
 
-    public function login(Request $request){
+    public function authenticate(Request $request){
         $formfeilds=$request->validate([
             'email'=>'required',
             'password'=>'required',
