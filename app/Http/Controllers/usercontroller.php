@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\emailverify;
+use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
@@ -17,12 +19,16 @@ class usercontroller extends Controller
             'email'=>['required','email',Rule::unique('users','email')],
             'password'=>['required'],
         ]);
+        $random =rand(111111,999999);
+        $formfeilds['otp']=$random;
+        
 
         //hash password
         $formfeilds['password']=bcrypt($formfeilds['password']);
 
     
-        User::create($formfeilds);
+        $user=User::create($formfeilds);
+        Mail::to($user->email)->send(new emailverify($user));
         return redirect("/login")->with('message','register succesfully');
     }
 

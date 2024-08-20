@@ -13,12 +13,13 @@ class emailverify extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $user;
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user =$user;
     }
 
     /**
@@ -37,7 +38,7 @@ class emailverify extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'email.welcome',
         );
     }
 
