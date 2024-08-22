@@ -92,7 +92,7 @@ body {
     margin-bottom: 15px;
 }
 
-.product button {
+.product input {
     padding: 10px 20px;
     background-color: #333;
     color: #fff;
@@ -102,7 +102,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.product button:hover {
+.product input:hover {
     background-color: #555;
 }
 
@@ -127,33 +127,23 @@ body {
             <li><a href="/useraddress">address</a></li>
         </ul>
         <div class="cart-icon">
-            <a href="#"><img src="cart.png" alt="Cart"></a>
+            <a href="/checkout"><img src="cart.png" alt="Cart"></a>
         </div>
     </nav>
 
-    <!-- Product Section -->
+   @foreach ($data as $item)
+   <form action="/index" method="POST">
     <section class="product-grid">
         <div class="product">
-            <img src="product1.jpg" alt="Product 1">
-            <h3>Product 1</h3>
-            <p>$29.99</p>
-            <button>Add to Cart</button>
+            <h3>{{ $item->name }}</h3>
+            <p>RM{{ $item->price }} per KG</p>
+            <p>{{ $item->category }}</p>
+            <input type="submit" >
         </div>
-        <div class="product">
-            <img src="product2.jpg" alt="Product 2">
-            <h3>Product 2</h3>
-            <p>$39.99</p>
-            <button>Add to Cart</button>
-        </div>
-        <div class="product">
-            <img src="product3.jpg" alt="Product 3">
-            <h3>Product 3</h3>
-            <p>$19.99</p>
-            <button>Add to Cart</button>
-        </div>
-        <!-- Add more products as needed -->
+<!-- Add more products as needed -->
     </section>
-
+</form>
+   @endforeach
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2024 Simple E-commerce. All rights reserved.</p>
