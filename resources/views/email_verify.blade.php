@@ -73,13 +73,17 @@
 </head>
 <body>
     <div class="container">
-        @csrf
-        <h2>OTP Verify</h2>
+        <h2>Email Verify</h2>
         <form method="POST" action="/email_verify">
             @csrf
             <div class="form-group">
+                <label for="otp">Email</label>
+                <input type="text" id="email" name="email" required>
                 <label for="otp">OTP</label>
                 <input type="number" id="otp" name="otp" min="111111" required>
+                @error('otp')
+                    {{ message }}
+                @enderror
             </div>
             <div class="form-group">
                 <button type="submit">verify</button>

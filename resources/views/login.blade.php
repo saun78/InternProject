@@ -73,9 +73,8 @@
 </head>
 <body>
     <div class="container">
-        @csrf
         <h2>Login</h2>
-        <form method="POST" action="/login">
+        <form method="POST" action="{{ route('Login') }}">
             @csrf
             <div class="form-group">
                 <label for="email">Email</label>
@@ -84,6 +83,9 @@
             <div class="form-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+                @error('password')
+                    {{ $message}}
+                @enderror
             </div>
             <div class="form-group">
                 <button type="submit">Login</button>
