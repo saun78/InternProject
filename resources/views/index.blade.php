@@ -122,13 +122,26 @@ body {
         <div class="logo">ShopLogo</div>
         <ul class="nav-links">
             <li><a href="/index">Home</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="/userdetail">user</a></li>
-            <li><a href="/useraddress">address</a></li>
-        </ul>
-        <div class="cart-icon">
-            <a href="/checkout"><img src="cart.png" alt="Cart"></a>
-        </div>
+            @auth
+            <li class="nav-item">
+                <button type="button" class="nav-link">
+                    {{ auth()->user()->email }}
+                </button>
+            </li>
+            <li class="nav-item">
+                <form action="{{ route('logout') }}" method="post">
+                  @csrf
+                  <input type="submit" value="Logout" class="nav-link" style="background: transparent;border:0px;">
+                </form>
+            </li>
+        @else
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/register">Sign Up</a>
+        </li>
+        @endauth
     </nav>
 
    @foreach ($data as $item)
@@ -138,7 +151,7 @@ body {
             <h3>{{ $item->name }}</h3>
             <p>RM{{ $item->price }} per KG</p>
             <p>{{ $item->category }}</p>
-            <input type="submit" >
+            <input type="submit" value="add to cart">
         </div>
 <!-- Add more products as needed -->
     </section>

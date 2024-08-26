@@ -14,11 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
-
-        User::factory()->create([
-
-        ]);
+        // User::factory(10)->create();
 
        products::create([
             "name"=>"brocoli",
@@ -40,6 +36,6 @@ class DatabaseSeeder extends Seeder
             "gram"=>"1000",
             "category"=>"vegetable",
         ]);
-           
+
     }
 }

@@ -72,7 +72,7 @@ class usercontroller extends Controller
         if(Auth::attempt($formfeilds)){
             $request->session()->regenerate();
 
-            return redirect("/")->with('message','Login succesful');
+            return redirect("/index")->with('message','Login succesful');
         }
 
         return back()->withErrors(['email'=>'invalid Credentials'])->onlyInput('email');

@@ -64,20 +64,36 @@
 <body>
     <div class="container">
         <h2>User Address</h2>
-        <form method="POST" action="useraddress" >
+        <form method="POST" action="/useraddress" >
             @csrf
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" name="address" required>
+                @error('address')
+                {{ $message }}
+                @enderror
+            </div>
             <div class="form-group">
                 <label for="city">City</label>
                 <input type="text" name="city" required>
             </div>
+            @error('city')
+            {{ $message }}
+            @enderror
             <div class="form-group">
                 <label for="state">State</label>
                 <input type="text" name="state" required>
             </div>
+            @error('state')
+            {{ $message }}
+            @enderror
             <div class="form-group">
                 <label for="postcode">Postcode</label>
                 <input type="number" name="postcode" required>
             <div class="form-group">
+                @error('postcode')
+                {{ $message }}
+                @enderror
                 <button type="submit">ADD</button>
             </div>
         </form>
@@ -89,5 +105,21 @@
             </li>
         </ul>
     </div>
+    @foreach ($data as $address)
+    <table>
+        <tr>
+            <th>Address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Postcode</th>
+        </tr>
+        <tr>
+            <td>{{ $address ->address }}</td>
+            <td>{{ $address ->city }}</td>
+            <td>{{ $address ->state }}</td>
+            <td>{{ $address ->postcode }}</td>
+        </tr>
+    </table>
+    @endforeach
 </body>
 </html>

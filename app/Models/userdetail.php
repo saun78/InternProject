@@ -9,6 +9,6 @@ class detail extends Model
 {
     use HasFactory;
 
-    protected $fillable=['gender','age','contactnumber'];
+    protected $fillable=['age','contactnumber'];
 
 }

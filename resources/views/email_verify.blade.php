@@ -79,11 +79,14 @@
             <div class="form-group">
                 <label for="otp">Email</label>
                 <input type="text" id="email" name="email" required>
+            @error('otp')
+                {{ message }}
+            @enderror
                 <label for="otp">OTP</label>
                 <input type="number" id="otp" name="otp" min="111111" required>
-                @error('otp')
-                    {{ message }}
-                @enderror
+            @error('otp')
+                {{ message }}
+            @enderror
             </div>
             <div class="form-group">
                 <button type="submit">verify</button>

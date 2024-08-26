@@ -78,44 +78,18 @@
             @csrf
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" name="name" value="{{old('name')}}" required>
+                <input type="text" name="name" required>
             </div>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" name="email" value="{{old('email')}}" required>
-            </div>
-            @error('email')
-                {{$message }}
-            @enderror
-            <div class="form-group">
-                <label for="address">Address</label>
-                <input type="text" name="address" required>
-            </div>
-            <div class="form-group">
-                <label for="state">State</label>
-                <input type="text" name="state" required>
-            </div>
-            <div class="form-group">
-                <label for="city">City</label>
-                <input type="text" name="city" required>
+                <label for="username">age</label>
+                <input type="number" name="age">
             </div>
             <div class="form-group">
                 <label for="contact">ContactNumber</label>
                 <input type="number" name="contact" required>
             </div>
             <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" name="password" required>
-            </div>
-            @error('password')
-                {{$message }}
-            @enderror
-            <div class="form-group">
-                <label for="confirm_password">Confirm Password</label>
-                <input type="password" name="password_confirmation" required>
-            </div>
-            <div class="form-group">
-                <button type="submit">Sign Up</button>
+                <button type="submit">edit profile</button>
             </div>
         </form>
     </div>

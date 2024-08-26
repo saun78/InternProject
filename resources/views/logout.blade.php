@@ -7,9 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/form" method="POST">
-        @csrf
-        
-    </form>
+    
 </body>
 </html>
