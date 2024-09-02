@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,18 +8,20 @@
     <title>Document</title>
 </head>
 
-@foreach($data as $product)   
+@foreach($data as $cart)   
 <body>
     <table>
         <tr>
             <th>Name</th>
             <th>Gram</th>
+            <th>Description</th>
             <th>Price</th>
         </tr>
         <tr>
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->gram }}</td>
-            <td>{{ $product->price }}</td>
+            <td>{{ $cart->name }}</td>
+            <td>{{ $cart->gram }}</td>
+            <td>{{ $cart->description }}</td>
+            <td>{{ $cart->price }}</td>
         </tr>
     </table>
 </body>

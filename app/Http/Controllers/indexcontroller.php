@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Models\carts;
 use App\Models\useraddresses;
 use App\Models\addtocarts;
 use App\Models\products;
@@ -25,38 +27,14 @@ class indexcontroller extends Controller
         return redirect('/useraddress');
     }
 
-    //index
-    public function find(){
-
-        $data = products::all();
-
-        return view('/index',compact ('data'));
-    }
-
-
-
-    public function addcart(Request $request,$id){
-        $formfeilds = $request->validate([
-            'name'=>'required',
-            'gram'=>'required',
-            'price'=>'required',
-        ]);
-        $data = addtocarts::all();
-
-        return view('/cart',compact ('data'));
-
-
-        // $cart = self::pos();
-
-        // Iterate through the listings to find the one with the matching id
-        // foreach ($cart as $product) {
-        //     if ($product->id == $id) {  // Use object notation for accessing properties
-        //         return $product;
-        //     }
-        // }
-
-   
+  
+        public function logout(Request $request)
+        {
+            Auth::logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
     
-    }  
-    
+            return redirect('/index');
+        
+        }    
 }   

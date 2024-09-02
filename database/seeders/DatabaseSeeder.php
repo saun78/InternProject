@@ -20,21 +20,24 @@ class DatabaseSeeder extends Seeder
             "name"=>"brocoli",
             "price"=>"21",
             "gram"=>"1000",
-            "category"=>"vegetable",
+            "picture"=>"images/img-4.png",
+            "description"=>"is a vegetable",
        ]);
 
        products::create([
             "name"=>"qpple",
             "price"=>"12",
             "gram"=>"1000",
-            "category"=>"fruit",
+            "picture"=>"images/img-4.png",
+            "description"=>"is a vegetable",
        ]);
 
         products::create([
             "name"=>"pepper",
             "price"=>"35",
             "gram"=>"1000",
-            "category"=>"vegetable",
+            "picture"=>"images/img-4.png",
+            "description"=>"is a vegetable",
         ]);
 
     }

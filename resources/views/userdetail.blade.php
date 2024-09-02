@@ -82,7 +82,7 @@
             </div>
             <div class="form-group">
                 <label for="username">age</label>
-                <input type="number" name="age">
+                <input type="number" name="age" min="1">
             </div>
             <div class="form-group">
                 <label for="contact">ContactNumber</label>
@@ -90,6 +90,7 @@
             </div>
             <div class="form-group">
                 <button type="submit">edit profile</button>
+                <a type="button" href="/useraddress">add address</a>
             </div>
         </form>
     </div>
